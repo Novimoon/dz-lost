@@ -549,14 +549,30 @@
                 image: imageUrl
             };
 
-            /* 
-               FIREBASE INTEGRATION TEMPLATE:
-               ------------------------------
-               firebase.firestore().collection('posts').add({
-                   ...newPost,
-                   createdAt: firebase.firestore.FieldValue.serverTimestamp()
-               }).then(() => { ... });
-            */
+            
+              // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDhY7iUHszwPlxncXmzixGcJrSQN99wceo",
+  authDomain: "dz-lost-b41cc.firebaseapp.com",
+  databaseURL: "https://dz-lost-b41cc-default-rtdb.firebaseio.com",
+  projectId: "dz-lost-b41cc",
+  storageBucket: "dz-lost-b41cc.firebasestorage.app",
+  messagingSenderId: "787573430731",
+  appId: "1:787573430731:web:bb684b814383457b99be4e",
+  measurementId: "G-XB2SKH0X9C"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+            
 
             posts.unshift(newPost); // Add to top
             renderPosts();
